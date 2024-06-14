@@ -20,11 +20,9 @@ const reducer = (state, action) => {
       }
     case "DELETE":{
         const newList = state.filter((product)=> product.id !== action.payload)
-        
         return newList;
     }
     case 'UPDATE': {
-
         const newList = state.map(item => {
           if(item.id === action.payload.id){
             return action.payload.item
@@ -58,8 +56,6 @@ function App() {
   }
 
   const editProduct=(id,newItem)=> {
-      console.log('Editproduct id:',id);
-      console.log('EditProduc item:',newItem);
       dispatch({
         type:"UPDATE", 
         payload:{
@@ -83,10 +79,7 @@ function App() {
 
 
   useEffect(()=> {
-    // A chaque fois que la list change cela l'envoi dans le localstorage
-    // Mais ça l'envoi juste apres le chargement de la page et apres le getItem donc action inutile
 
-    // Il faudrai que a partir d'un delete, update, add cela localSotorage set
     StoreList(list)
   },[list])
 
