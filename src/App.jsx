@@ -24,9 +24,10 @@ const reducer = (state, action) => {
         return newList;
     }
     case 'UPDATE': {
+
         const newList = state.map(item => {
           if(item.id === action.payload.id){
-            return action.payload
+            return action.payload.item
           }
           return item
         })
@@ -56,15 +57,14 @@ function App() {
     localStorage.setItem('list',JSON.stringify(list))
   }
 
-  const editProduct=({id,propertyName, value})=> {
-
-      console.log('Editproduct:',id);
+  const editProduct=(id,newItem)=> {
+      console.log('Editproduct id:',id);
+      console.log('EditProduc item:',newItem);
       dispatch({
         type:"UPDATE", 
         payload:{
           id:id, 
-          name:propertyName,
-          value:value
+          item:newItem
         }
       })
   }

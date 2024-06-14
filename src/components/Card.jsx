@@ -38,6 +38,7 @@ const Card = ({product,onDelete,onEdit}) => {
         >
             <label 
                 htmlFor="edit-name"
+                className="flex flex-col gap-1"
             >
                 Name:
             <input 
@@ -63,31 +64,33 @@ const Card = ({product,onDelete,onEdit}) => {
                 </label>
             <label 
                 htmlFor="edit-price"
+                className="flex flex-col gap-1"
             >
                 Prix:
             <input 
-            value={editProductValue.price}  
-            type="number" 
-            name="price"
-            onChange={onChange}
+                value={editProductValue.price}  
+                type="number" 
+                name="price"
+                onChange={onChange}
+                className="w-auto"
             />
             </label>
-            <div className="flex flex-row gap-2">
-                <div 
+            <div className="flex flex-row gap-4 w-full justify-center">
+                <button 
                     className="size-8 p-2 bg-green-200 rounded-full shadow-lg hover:shadow-none duration-150 transition-all ease-in flex items-center justify-center"
                     onClick={handleEdit}
                     >
                     <FaCheck className="text-green-500 w-full h-full"/>
-                </div>
-                <div 
+                </button>
+                <button 
                     className="size-8 p-2 bg-red-500 rounded-full shadow-lg hover:shadow-none duration-150 transition-all ease-in flex items-center justify-center"
                     onClick={()=>{
                         setIsEdit(false)
                         setEditProductValue(product)
-                    }}
-                    >
+                        }}
+                        >
                     <MdCancel className="text-red-200 w-full h-full"/>
-                </div>
+                </button>
             </div>
         </form>
     )

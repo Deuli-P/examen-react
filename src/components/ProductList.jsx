@@ -2,9 +2,6 @@ import Card from './Card'
 
 const ProductList = ({productList,onDelete,onEdit}) => {
 
-
-    console.log("Longueur productList:",productList.length);
-    console.log("productList:",productList);
   return (
     <section className='flex flex-col items-center py-10 gap-6'>
         <h2 className=' font-medium underline underline-offset-4'>Liste des Produits vendu</h2>
